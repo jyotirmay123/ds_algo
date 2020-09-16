@@ -1,0 +1,109 @@
+
+@media (max-width: 600px) {
+    .local-video {
+        /*padding: 5px;*/
+        /*margin:10px;*/
+        position: relative;
+        border: 1px solid #cddfe7;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        width: 100%;
+        /*height: 18em;*/
+        text-align: center;
+        /*margin-top:15px;*/
+    }
+
+    .remote-video {
+        /*padding:5px;*/
+        /*margin:10px;*/
+        position: relative;
+        border: 1px solid #cddfe7;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        width: 100%;
+        /*height: 18em;*/
+        text-align: center;
+        /*right: 0px;*/
+        /*margin-top:15px;*/
+    }
+
+    canvas {
+        right: 0em!important;
+        margin-top: -18em;
+        position: absolute;
+        height: 18em;
+    }
+}
+
+@media (min-width: 600px) {
+    canvas {
+        right: 12em !important;
+        margin-top: -19em;
+        position: absolute;
+        height: 18em;
+    }
+
+    .local-video {
+        /*margin:10px;*/
+        position: relative;
+        border: 1px solid #cddfe7;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        /*width: 52%;*/
+        height: 18em;
+        text-align: center;
+        /*margin-top:15px;*/
+    }
+
+    .remote-video {
+        /*margin:10px;*/
+        position: relative;
+        border: 1px solid #cddfe7;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        /*width: 52%;*/
+        height: 18em;
+        text-align: center;
+        /*right: 0px;*/
+        /*margin-top:15px;*/
+    }
+}
+
+.loadCam-btn {
+    position: relative;
+    bottom: 0px;
+}
+
+.my-btn {
+    display: inline-block;
+    color: #fff;
+    letter-spacing: 0px;
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 46px;
+    outline: none !important;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: linear-gradient(to right, #4458dc 0%, #854fee 100%), radial-gradient(circle at top left, #4458dc, #854fee);
+    border: double 2px transparent;
+    box-shadow: 0px 10px 30px rgba(118, 85, 225, 0.3);
+}
+
+/*canvas {*/
+/*    position: relative;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    z-index:1*/
+/*}*/
+
+.iexp-container {
+    /*margin-top: 10em;*/
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}
