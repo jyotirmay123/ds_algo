@@ -6,7 +6,7 @@ from flask import Flask, request, Response, send_file, send_from_directory, rend
 # from utils.camera import VideoCamera
 import io
 # import cv2
-
+import os
 app = Flask(__name__)
 # vc = VideoCamera()
 
@@ -22,8 +22,12 @@ def after_request(response):
 
 @app.route('/')
 def hello_world():
+    data = dict()
+    data['ds_algo'] = os.listdir('static/practise/ds_algo/')
+    data['german'] = os.listdir('static/practise/german/')
+    data['diet_gym'] = os.listdir('static/practise/diet_gym/')
 
-    return render_template('index.html')
+    return render_template('index.html', datas=data, keys=list(data.keys()))
 
 
 # @app.route('/image', methods=['POST'])

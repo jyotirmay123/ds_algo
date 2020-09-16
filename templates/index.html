@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="/static/img/favicon.png" type="image/png">
-    <title>iExp</title>
+    <title>PMP</title>
 
     <meta property="og:title" content="Jyotirmay's Portfolio" />
     <meta property="og:description" content="The site contains my work experience, blogs, and many other details about myself.
@@ -85,29 +85,109 @@
 </section>
 <!--================ End Banner Area =================-->
 
-<!--================Start i-Expression Area =================-->
-<!--<section class="section_gap">-->
-<!--    <div class="iexp-container">-->
-<!--        <div class="row">-->
-<!--            <div class="col-md-6">-->
-<!--                <h4> YOUR CAMERA FEED </h4>-->
-<!--                 <video autoplay muted crossOrigin="anonymous" class="local-video" id="local-video"></video>-->
-<!--            </div>-->
-<!--            <div class="col-md-6">-->
-<!--                <h4> EMOTION DETECTION FEED </h4>-->
-<!--                <video autoplay muted crossOrigin="anonymous" class="remote-video" id="remote-video"></video>-->
-<!--                <div id="paste-canvas"></div>-->
-<!--&lt;!&ndash;                <img id="bg" src="/static/images/background.jpg" alt="No Feed Yet"/>&ndash;&gt;-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="row">-->
-<!--            <div class="col-md-12">-->
-<!--                <button class="my-btn" onclick="loadCam()">Let's Start</button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!--================End i-Expression Area =================-->
+<!--================Start PMP Area =================-->
+<section class="section_gap">
+    <div class="container">
+        <div class="row centralized">
+            <div class="col-md-4">
+                <button class="my-btn" type="button" data-toggle="collapse" data-target="#ds_algo" aria-expanded="false" aria-controls="collapseExample">
+                  DS & Algo
+                </button>
+            </div>
+            <div class="col-md-4">
+                <button class="my-btn" type="button" data-toggle="collapse" data-target="#german" aria-expanded="false" aria-controls="collapseExample">
+                  German Lang
+                </button>
+            </div>
+            <div class="col-md-4">
+                <button class="my-btn" type="button" data-toggle="collapse" data-target="#diet_gym" aria-expanded="false" aria-controls="collapseExample">
+                  Gym & Diet
+                </button>
+            </div>
+        </div>
+        <br>
+        <hr>
+        {% for key in keys %}
+            {% if 'ds_algo' in [key] %}
+            <div class="collapse" id="ds_algo" data-collapse-group="collapse-group-2">
+              <div class="well">
+                <div class="row">
+                    {% for data_root in datas[key] %}
+                    <div class="col-md-3">
+                        <button class="title-class" type="button" data-toggle="collapse" data-target="#{{data_root}}" aria-expanded="false" aria-controls="collapseExample">
+                          {{data_root}}
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                  {% for data_root in datas[key] %}
+                  <div class="row">
+                     <div class="collapse" id="{{data_root}}" data-collapse-group="collapse-group">
+                        <div class="well content-wrapper">
+                            <br>
+                            <h4> <span class="pr-stmt">{{data_root}}</span>: PROBLEM STATEMENT </h4>
+                            <hr>
+                            <div class="col-md-12">
+                                <embed src="/static/practise/{{key}}/{{data_root}}/q.txt">
+                            </div>
+                            <hr>
+                            <h4> MY SOLUTION </h4>
+                            <hr>
+                            <div class="col-md-12">
+                                <embed src="/static/practise/{{key}}/{{data_root}}/mine.py">
+                            </div>
+                            <hr>
+                            <h4> BEST RUN-TIME SOLUTION </h4>
+                            <hr>
+                            <div class="col-md-12">
+                                <embed src="/static/practise/{{key}}/{{data_root}}/best_runtime.py">
+                            </div>
+                            <hr>
+                            <h4> BEST SPACE-TIME SOLUTION </h4>
+                            <hr>
+                            <div class="col-md-12">
+                                <embed src="/static/practise/{{key}}/{{data_root}}/best_spacetime.py">
+                            </div>
+                            <hr>
+                            <h4> RANK ACHIEVED </h4>
+                            <hr>
+                            <div class="col-md-12">
+                                <img class="rank-img" src="/static/practise/{{key}}/{{data_root}}/rank.png">
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+              </div>
+            </div>
+
+            {% elif 'german' in [key] %}
+            <div class="collapse" id="german" data-collapse-group="collapse-group-2">
+                  <div class="well">
+                     <div class="row">
+                        <div class="col-md-12 content-wrapper">
+                            SORRY, NO UPDATE YET!!!
+                        </div>
+                     </div>
+                  </div>
+            </div>
+
+            {% elif 'diet_gym' in [key] %}
+            <div class="collapse" id="diet_gym" data-collapse-group="collapse-group-2">
+                  <div class="well">
+                    <div class="row">
+                        <div class="col-md-12 content-wrapper">
+                            SORRY, NO UPDATE YET!!!
+                        </div>
+                     </div>
+                  </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+<!--================End PMP Area =================-->
 
 <!--================ Start Newsletter Area =================-->
 <section class="newsletter_area section_gap">
@@ -185,16 +265,18 @@
 <!--<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsLFTYlIjIog7Unp7fXPAFSzZ4pXW8I-Y"></script>-->
 <!--<script src="/static/js/gmaps.min.js"></script>-->
 <script src="/static/js/theme.js"></script>
-<script src="/static/js/app.js"></script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-72213266-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+<!--<script src="/static/js/app.js"></script>-->
+<script src="/static/js/pmp.js"></script>
 
-		gtag('config', 'UA-72213266-2');
-	</script>
-	<!-- End Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-72213266-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-72213266-2');
+</script>
+<!-- End Google Analytics -->
 </body>
 </html>
