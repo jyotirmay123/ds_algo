@@ -24,10 +24,21 @@ def after_request(response):
 def hello_world():
     data = dict()
     data['ds_algo'] = os.listdir('static/practise/ds_algo/')
+    ds_content = {}
+    for algo in data['ds_algo']:
+        ds_content[algo] = {}
+        for file in os.listdir(f'static/practise/ds_algo/{algo}/'):
+            if file.split('.')[-1] is not 'png':
+                with open(f'static/practise/ds_algo/{algo}/{file}', encoding="utf8", errors='ignore') as f:
+                    txt = f.read()
+                    ds_content[algo][file] = txt
+            else:
+                ds_content[algo][file] = 'AN IMAGE FILE.'
+
     data['german'] = os.listdir('static/practise/german/')
     data['diet_gym'] = os.listdir('static/practise/diet_gym/')
 
-    return render_template('index.html', datas=data, keys=list(data.keys()))
+    return render_template('index.html', datas=data, keys=list(data.keys()), ds_content=ds_content)
 
 
 # @app.route('/image', methods=['POST'])

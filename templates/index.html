@@ -129,25 +129,45 @@
                             <h4> <span class="pr-stmt">{{data_root}}</span>: PROBLEM STATEMENT </h4>
                             <hr>
                             <div class="col-md-12">
-                                <embed src="/static/practise/{{key}}/{{data_root}}/q.txt">
+                                <pre class="prettyprint prepad">
+                                    <span class="nocode">
+                                        {{ds_content[data_root]['q.txt']}}
+                                    </span>
+<!--                                    <embed src="/static/practise/{{key}}/{{data_root}}/q.txt">-->
+                                </pre>
                             </div>
                             <hr>
                             <h4> MY SOLUTION </h4>
                             <hr>
                             <div class="col-md-12">
-                                <embed src="/static/practise/{{key}}/{{data_root}}/mine.py">
+                                <pre class="prettyprint prepad">
+                                    <code class="language-py">
+                                        {{ds_content[data_root]['mine.py']}}
+<!--                                        <embed src="/static/practise/{{key}}/{{data_root}}/mine.py">-->
+                                    </code>
+                                </pre>
                             </div>
                             <hr>
                             <h4> BEST RUN-TIME SOLUTION </h4>
                             <hr>
                             <div class="col-md-12">
-                                <embed src="/static/practise/{{key}}/{{data_root}}/best_runtime.py">
+                                <pre class="prettyprint prepad">
+                                    <code class="language-py">
+                                        {{ds_content[data_root]['best_runtime.py']}}
+<!--                                        <embed src="/static/practise/{{key}}/{{data_root}}/best_runtime.py">-->
+                                    </code>
+                                </pre>
                             </div>
                             <hr>
                             <h4> BEST SPACE-TIME SOLUTION </h4>
                             <hr>
                             <div class="col-md-12">
-                                <embed src="/static/practise/{{key}}/{{data_root}}/best_spacetime.py">
+                                <pre class="prettyprint prepad">
+                                    <code class="language-py">
+                                        {{ds_content[data_root]['best_spacetime.py']}}
+<!--                                        <embed src="/static/practise/{{key}}/{{data_root}}/best_spacetime.py">-->
+                                    </code>
+                                </pre>
                             </div>
                             <hr>
                             <h4> RANK ACHIEVED </h4>
@@ -259,6 +279,7 @@
 <script src="/static/vendors/isotope/imagesloaded.pkgd.min.js"></script>
 <script src="/static/vendors/isotope/isotope-min.js"></script>
 <script src="/static/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="/static/js/run_prettify.js"></script>
 <!--<script src="/static/js/jquery.ajaxchimp.min.js"></script>-->
 <!--<script src="/static/js/mail-script.js"></script>-->
 <!--&lt;!&ndash;gmaps Js&ndash;&gt;-->

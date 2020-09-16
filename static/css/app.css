@@ -149,11 +149,19 @@ embed {
     box-shadow: 0px 10px 30px rgba(118, 85, 225, 0.3);
 }
 
-.centralized{
+.centralized {
     text-align: center;
 }
 
-.pr-stmt{
+.pr-stmt {
     text-transform: uppercase;
     color: #3395ff;
+}
+
+.prepad {
+    background: #d3d3d340;
+    white-space:pre-wrap;
+    padding: 0px 2px 0px 20px !important;
+    /*border: 0px #888 !important;*/
+    text-align: left !important;
 }
