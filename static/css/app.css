@@ -187,3 +187,46 @@ embed {
     margin-top: 10px;
     padding-top: 10px;
 }
+
+.workout-img {
+    height: 35em;
+}
+
+.workout-video {
+    display:flex;
+    /*height: 400px;*/
+    flex-wrap: wrap;
+}
+
+#workout-videos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#daily-workouts {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.active-img {
+  animation: make_bigger 1s ease;
+  /*width: 500px;*/
+  /*height: 201px;*/
+}
+@keyframes make_bigger {
+  from { width: 200px; }
+  to { width: 500px; }
+}
+.non_active-img {
+  animation: make_smaller 1s ease;
+  /*width: 127px;*/
+  /*height: 128px;*/
+}
+@keyframes make_smaller {
+  from { width: 500px; }
+  to { width: 200px; }
+}
+/*.img-container {*/
+/*  width: 200px;*/
+/*  height: 201px;*/
+/*}*/

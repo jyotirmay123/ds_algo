@@ -48,12 +48,25 @@ def hello_world():
                     german_content[lessons] = json.loads(txt)
 
     data['diet_gym'] = os.listdir('static/practise/diet_gym/')
+    gym_content = {}
+    for workout in data['diet_gym']:
+        gym_content[workout] = {}
+        for file in os.listdir(f'static/practise/diet_gym/{workout}/'):
 
+            gym_content[workout][file.split('.')[0]] = f'static/practise/diet_gym/{workout}/{file}'
+
+    gym_content_keys = {}
+    for workout in data['diet_gym']:
+        gym_content_keys[workout] = list(gym_content[workout].keys())
+
+    print(gym_content)
     return render_template('index.html',
                            datas=data,
                            keys=list(data.keys()),
                            ds_content=ds_content,
-                           german_content=german_content)
+                           german_content=german_content,
+                           gym_content=gym_content,
+                           gym_content_keys=gym_content_keys)
 
 
 # @app.route('/image', methods=['POST'])
