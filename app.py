@@ -7,7 +7,9 @@ from flask import Flask, request, Response, send_file, send_from_directory, rend
 import io
 # import cv2
 import os
+import json
 app = Flask(__name__)
+
 # vc = VideoCamera()
 
 
@@ -36,9 +38,22 @@ def hello_world():
                 ds_content[algo][file] = 'AN IMAGE FILE.'
 
     data['german'] = os.listdir('static/practise/german/')
+    german_content = {}
+    for lessons in data['german']:
+        german_content[lessons] = {}
+        for file in os.listdir(f'static/practise/german/{lessons}/'):
+            if file.split('.')[-1] == 'json':
+                with open(f'static/practise/german/{lessons}/{file}', encoding="utf8", errors='ignore') as f:
+                    txt = f.read()
+                    german_content[lessons] = json.loads(txt)
+
     data['diet_gym'] = os.listdir('static/practise/diet_gym/')
 
-    return render_template('index.html', datas=data, keys=list(data.keys()), ds_content=ds_content)
+    return render_template('index.html',
+                           datas=data,
+                           keys=list(data.keys()),
+                           ds_content=ds_content,
+                           german_content=german_content)
 
 
 # @app.route('/image', methods=['POST'])
