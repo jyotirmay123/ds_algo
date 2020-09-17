@@ -165,3 +165,10 @@ embed {
     /*border: 0px #888 !important;*/
     text-align: left !important;
 }
+
+.fb-centralized {
+    margin: 10px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
