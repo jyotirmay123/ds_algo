@@ -28,8 +28,12 @@ def hello_world():
     data['ds_algo'] = os.listdir('static/practise/ds_algo/')
     ds_content = {}
     for algo in data['ds_algo']:
+        if algo == '.DS_Store':
+            continue
         ds_content[algo] = {}
         for file in os.listdir(f'static/practise/ds_algo/{algo}/'):
+            if file == '.DS_Store':
+                continue
             if file.split('.')[-1] is not 'png':
                 with open(f'static/practise/ds_algo/{algo}/{file}', encoding="utf8", errors='ignore') as f:
                     txt = f.read()
@@ -40,8 +44,12 @@ def hello_world():
     data['german'] = os.listdir('static/practise/german/')
     german_content = {}
     for lessons in data['german']:
+        if lessons == '.DS_Store':
+            continue
         german_content[lessons] = {}
         for file in os.listdir(f'static/practise/german/{lessons}/'):
+            if file == '.DS_Store':
+                continue
             if file.split('.')[-1] == 'json':
                 with open(f'static/practise/german/{lessons}/{file}', encoding="utf8", errors='ignore') as f:
                     txt = f.read()
@@ -50,13 +58,18 @@ def hello_world():
     data['diet_gym'] = os.listdir('static/practise/diet_gym/')
     gym_content = {}
     for workout in data['diet_gym']:
+        if workout == '.DS_Store':
+            continue
         gym_content[workout] = {}
         for file in os.listdir(f'static/practise/diet_gym/{workout}/'):
-
+            if file == '.DS_Store':
+                continue
             gym_content[workout][file.split('.')[0]] = f'static/practise/diet_gym/{workout}/{file}'
 
     gym_content_keys = {}
     for workout in data['diet_gym']:
+        if workout == '.DS_Store':
+            continue
         gym_content_keys[workout] = list(gym_content[workout].keys())
 
     print(gym_content)
