@@ -230,3 +230,27 @@ embed {
 /*  width: 200px;*/
 /*  height: 201px;*/
 /*}*/
+
+#myTab {
+    justify-content: center;
+}
+
+#myTabContent {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    margin: 10px;
+    padding: 10px
+}
+
+.nav-tabs .nav-link.active {
+    font-weight: 900;
+    color: #0043ff;
+    background-color: #eae4e4;
+}
+
+.nav-link {
+    font-size: larger;
+    color: #4a57de;
+}

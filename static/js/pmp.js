@@ -10,6 +10,20 @@ $("[data-collapse-group-2]").on('show.bs.collapse', function () {
   $("[data-collapse-group-2='" + thisCollapseAttr + "']").not($this).collapse('hide');
 });
 
+$("[data-collapse-group-3]").on('show.bs.collapse', function () {
+  var $this = $(this);
+  var thisCollapseAttr = $this.attr('data-collapse-group-3');
+  $("[data-collapse-group-3='" + thisCollapseAttr + "']").not($this).collapse('hide');
+  $(".gym-collapsable").collapse();
+});
+
+$("[data-collapse-group-4]").on('show.bs.collapse', function () {
+  var $this = $(this);
+  var thisCollapseAttr = $this.attr('data-collapse-group-4');
+  $("[data-collapse-group-4='" + thisCollapseAttr + "']").not($this).collapse('hide');
+  $(".gym-collapsable").collapse();
+});
+
 $(document).ready(function(){
   $("#dsInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
@@ -23,7 +37,23 @@ $(document).ready(function(){
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
+
+  $(".gdInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".gdList").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+  // $('#daily-workouts').DataTable();
+  // $('#food-recipe').DataTable();
+  // $('#workout-videos').DataTable();
 });
+
+function hideAll() {
+  $(".gym-collapsable").removeClass('show');
+  $(".gdInput").val('').keyup();
+}
 
 // $("[data-collapse-group-3]").on('show.bs.collapse', function () {
 //   var $this = $(this);
