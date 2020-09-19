@@ -113,9 +113,10 @@
             <div class="collapse" id="ds_algo" data-collapse-group="collapse-group-2">
               <div class="well">
                 <div class="row">
+                    <input class="form-control" id="dsInput" type="text" placeholder="Search..">
                     {% for data_root in datas[key] %}
                     <div class="col-md-3">
-                        <button class="title-class" type="button" data-toggle="collapse" data-target="#{{data_root}}" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="ds-list title-class" type="button" data-toggle="collapse" data-target="#{{data_root}}" aria-expanded="false" aria-controls="collapseExample">
                           {{data_root}}
                         </button>
                     </div>
@@ -187,13 +188,14 @@
             <div class="collapse" id="german" data-collapse-group="collapse-group-2">
                   <div class="well">
                     <div class="row">
-                    {% for data_root in datas[key] %}
-                        <div class="col-md-2">
-                            <button class="title-class" type="button" data-toggle="collapse" data-target="#{{data_root}}" aria-expanded="false" aria-controls="collapseExample">
-                              {{data_root}}
-                            </button>
-                        </div>
-                    {% endfor %}
+                    <input class="form-control" id="germanInput" type="text" placeholder="Search..">
+                        {% for data_root in datas[key] %}
+                            <div class="col-md-2">
+                                <button class="title-class german-course-ids" type="button" data-toggle="collapse" data-target="#{{data_root}}" aria-expanded="false" aria-controls="collapseExample">
+                                  {{data_root}}
+                                </button>
+                            </div>
+                        {% endfor %}
                     </div>
 
                   {% for german_data_root in datas[key] %}

@@ -10,6 +10,21 @@ $("[data-collapse-group-2]").on('show.bs.collapse', function () {
   $("[data-collapse-group-2='" + thisCollapseAttr + "']").not($this).collapse('hide');
 });
 
+$(document).ready(function(){
+  $("#dsInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".ds-list").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+  $("#germanInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".german-course-ids").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
 // $("[data-collapse-group-3]").on('show.bs.collapse', function () {
 //   var $this = $(this);
 //   var thisCollapseAttr = $this.attr('data-collapse-group-3');
