@@ -1,16 +1,8 @@
-# from PIL import Image
-# import imutils
+
 from flask import Flask, request, Response, send_file, send_from_directory, render_template, url_for, jsonify
-# from utils.utills import image_base64, bytes_to_base64
-# import numpy as np
-# from utils.camera import VideoCamera
-import io
-# import cv2
 import os
 import json
 app = Flask(__name__)
-
-# vc = VideoCamera()
 
 
 # for CORS
@@ -61,6 +53,15 @@ def hello_world():
         if workout == '.DS_Store':
             continue
         gym_content[workout] = {}
+        if workout == 'workout-videos':
+            with open(f'static/practise/diet_gym/{workout}/fitbod-exercises.json', encoding="utf-8-sig") as f:
+                txt = f.read()
+                f_json = json.loads(txt)
+                for lessons in f_json:
+                    print(lessons, lessons['Name'], lessons['URL'])
+                    gym_content[workout][lessons['Name']] = "https://www.youtube.com/embed/"+lessons['URL'].split("=")[-1]
+            continue
+
         for file in os.listdir(f'static/practise/diet_gym/{workout}/'):
             if file == '.DS_Store':
                 continue

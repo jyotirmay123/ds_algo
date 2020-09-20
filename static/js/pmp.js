@@ -25,6 +25,9 @@ $("[data-collapse-group-4]").on('show.bs.collapse', function () {
 });
 
 $(document).ready(function(){
+  $("#dietgym").click(()=>{
+    $("#workout-videos-tab").click();
+  });
   $("#dsInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $(".ds-list").filter(function() {
@@ -45,31 +48,11 @@ $(document).ready(function(){
     });
   });
 
-  // $('#daily-workouts').DataTable();
-  // $('#food-recipe').DataTable();
-  // $('#workout-videos').DataTable();
 });
 
-function hideAll() {
-  $(".gym-collapsable").removeClass('show');
+function hideAll(element) {
+  // $(".gym-collapsable").removeClass('show');
   $(".gdInput").val('').keyup();
+  $(".tab-panel").hide();
+  $(".tab-panel#"+element).show();
 }
-
-// $("[data-collapse-group-3]").on('show.bs.collapse', function () {
-//   var $this = $(this);
-//   var thisCollapseAttr = $this.attr('data-collapse-group-3');
-//   $("[data-collapse-group-3='" + thisCollapseAttr + "']").not($this).collapse('hide');
-// });
-
-
-// $('.make_bigger').click(function() {
-//   $('.active').not(this).addClass('non_active-img');
-//   $('.active').not(this).removeClass('active-img');
-//   if ($(this).hasClass('active-img')) {
-//     $(this).addClass('non_active-img');
-//     $(this).removeClass('active-img');
-//   } else {
-//     $(this).removeClass('non_active-img');
-//     $(this).addClass('active-img');
-//   }
-// });

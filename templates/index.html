@@ -91,17 +91,17 @@
     <div class="container">
         <div class="row centralized">
             <div class="col-md-4">
-                <button class="my-btn" type="button" data-toggle="collapse" data-target="#ds_algo" aria-expanded="false" aria-controls="collapseExample">
+                <button class="my-btn" type="button" id="dsalgo" data-toggle="collapse" data-target="#ds_algo" aria-expanded="false" aria-controls="collapseExample">
                   DS & Algo
                 </button>
             </div>
             <div class="col-md-4">
-                <button class="my-btn" type="button" data-toggle="collapse" data-target="#german" aria-expanded="false" aria-controls="collapseExample">
+                <button class="my-btn" type="button" id="germanlang" data-toggle="collapse" data-target="#german" aria-expanded="false" aria-controls="collapseExample">
                   German Lang
                 </button>
             </div>
             <div class="col-md-4">
-                <button class="my-btn" type="button" data-toggle="collapse" data-target="#diet_gym" aria-expanded="false" aria-controls="collapseExample">
+                <button class="my-btn" type="button" id="dietgym" data-toggle="collapse" data-target="#diet_gym" aria-expanded="false" aria-controls="collapseExample">
                   Gym & Diet
                 </button>
             </div>
@@ -232,47 +232,58 @@
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           {% for gym_data_root in datas[key] %}
                           <li class="nav-item">
-                            <a class="nav-link" id="{{gym_data_root}}-tab" data-toggle="tab" href="#{{gym_data_root}}" role="tab" aria-controls="home" aria-selected="true" onclick="hideAll()">{{gym_data_root}}</a>
+                            <a class="nav-link" id="{{gym_data_root}}-tab" data-toggle="tab" href="#{{gym_data_root}}" role="tab" aria-controls="home" aria-selected="true" onclick="hideAll('{{gym_data_root}}')">{{gym_data_root}}</a>
                           </li>
                           {% endfor %}
                         </ul>
                         </div>
                     </div>
-                    <div class="row">
+<!--                    <div class="row">-->
 <!--                        <div class="col-md-12">-->
                         <div class="tab-content" id="myTabContent">
                             {% for gym_data_root in datas[key] %}
-                              <div class="tab-pane fade" id="{{gym_data_root}}" role="tabpanel" aria-labelledby="{{gym_data_root}}-tab">
+                              <div class="tab-panel fade" id="{{gym_data_root}}" role="tabpanel" aria-labelledby="{{gym_data_root}}-tab">
                                   <input class="form-control gdInput" type="text" placeholder="Search..">
+                                  <div class="row">
                                   {% for gym_c in gym_content[gym_data_root] %}
-                                    <div class="col-md-12">
-                                        <button class="title-class german-course-ids gdList" type="button" data-toggle="collapse" data-target="#{{gym_c}}" aria-expanded="false" aria-controls="collapseExample">
-                                            {{gym_c}}
-                                        </button>
-                                    </div>
+                                      {#% if gym_data_root == 'daily-workouts' %#}
+<!--                                        <button class="title-class german-course-ids gdList" type="button" data-toggle="collapse" data-target="#{{gym_c}}" aria-expanded="false" aria-controls="collapseExample">-->
+<!--                                            {{gym_c}}-->
+<!--                                        </button>-->
+                                      {#% elif gym_data_root == 'workout-videos' %#}
+                                        <div class="col-md-3">
+                                            <a target="_blank" href="{{gym_content[gym_data_root][gym_c]}}">
+                                                <button class="title-class german-course-ids gdList" type="button" data-toggle="collapse" data-target="#" aria-expanded="false" aria-controls="collapseExample">
+                                                    {{gym_c}}
+                                                </button>
+                                            </a>
+                                        </div>
+                                        {#% endif %#}
                                   {% endfor %}
+                                  </div>
                               </div>
                             {% endfor %}
                         </div>
 <!--                        </div>-->
-                    </div>
+<!--                    </div>-->
 
                   {% for gymdiet_data_root in datas[key] %}
                       {% for gym_topic in gym_content_keys[gymdiet_data_root] %}
                           <div class="row" style="justify-content: center">
-                             <div class="collapse gym-collapsable" id="{{gym_topic}}" data-collapse-group="collapse-group">
+                             <div class="collapse" id="{{gym_topic}}" data-collapse-group="collapse-group">
                                 <div class="well content-wrapper">
                                     <div class="german-header">
                                         <div class="col-md-12">
                                             <h4> <span class="pr-stmt">{{gym_topic}}</span></h4>
                                             {% if gymdiet_data_root == 'daily-workouts' %}
-                                                <img src="{{gym_content[gymdiet_data_root][gym_topic]}}">
+                                                <img src="/{{gym_content[gymdiet_data_root][gym_topic]}}">
                                             {% elif gymdiet_data_root == 'workout-videos' %}
-                                                <video width="320" height="240" controls>
-                                                  <source src="{{gym_content[gymdiet_data_root][gym_topic]}}" type="video/mp4">
-        <!--                                          <source src="movie.ogg" type="video/ogg">-->
-                                                  Your browser does not support the video tag.
-                                                </video>
+<!--                                                <iframe class="vid-ad" width="951" height="535" src="" data-iframely-url="{{gym_content[gymdiet_data_root][gym_topic]}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                                                <video width="320" height="240" controls autoplay crossorigin="anonymous" playsinline muted>-->
+<!--                                                  <source src="{{gym_content[gymdiet_data_root][gym_topic]}}" type="video/mp4">-->
+<!--        &lt;!&ndash;                                          <source src="movie.ogg" type="video/ogg">&ndash;&gt;-->
+<!--                                                  Your browser does not support the video tag.-->
+<!--                                                </video>-->
                                             {% endif %}
                                         </div>
                                     </div>
@@ -381,6 +392,7 @@
 
     gtag('config', 'UA-72213266-2');
 </script>
+
 <!-- End Google Analytics -->
 </body>
 </html>

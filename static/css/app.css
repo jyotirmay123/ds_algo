@@ -131,7 +131,7 @@ embed {
     /*padding: 10px;*/
     text-transform: uppercase;
     /*display: inline-block;*/
-    color: #fff;
+    color: #ffffff;
     letter-spacing: 0px;
     font-family: "Rubik", sans-serif;
     font-weight: 500;
@@ -241,7 +241,8 @@ embed {
     text-align: center;
     display: flex;
     margin: 10px;
-    padding: 10px
+    padding: 10px;
+    /*display: none;*/
 }
 
 .nav-tabs .nav-link.active {
@@ -254,3 +255,5 @@ embed {
     font-size: larger;
     color: #4a57de;
 }
+
+
