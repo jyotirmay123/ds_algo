@@ -25,6 +25,10 @@ $("[data-collapse-group-4]").on('show.bs.collapse', function () {
 });
 
 $(document).ready(function(){
+  $(".ld")[0].click(()=>{
+    console.log("clicked");
+  });
+  document.getElementsByTagName("body")[0].classList.remove("loader");
   $("#dietgym").click(()=>{
     $("#workout-videos-tab").click();
   });
