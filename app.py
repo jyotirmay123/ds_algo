@@ -58,7 +58,6 @@ def hello_world():
                 txt = f.read()
                 f_json = json.loads(txt)
                 for lessons in f_json:
-                    print(lessons, lessons['Name'], lessons['URL'])
                     gym_content[workout][lessons['Name']] = "https://www.youtube.com/embed/"+lessons['URL'].split("=")[-1]
             continue
 
@@ -73,7 +72,6 @@ def hello_world():
             continue
         gym_content_keys[workout] = list(gym_content[workout].keys())
 
-    print(gym_content)
     return render_template('index.html',
                            datas=data,
                            keys=list(data.keys()),

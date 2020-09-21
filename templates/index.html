@@ -91,12 +91,12 @@
     <div class="container">
         <div class="row centralized">
             <div class="col-md-4">
-                <button class="my-btn" type="button" id="dsalgo" data-toggle="collapse" data-target="#ds_algo" aria-expanded="false" aria-controls="collapseExample">
+                <button class="my-btn" type="button" data-toggle="collapse" data-target="#ds_algo" aria-expanded="false" aria-controls="collapseExample">
                   DS & Algo
                 </button>
             </div>
             <div class="col-md-4">
-                <button class="my-btn" type="button" id="germanlang" data-toggle="collapse" data-target="#german" aria-expanded="false" aria-controls="collapseExample">
+                <button class="my-btn" type="button" data-toggle="collapse" data-target="#german" aria-expanded="false" aria-controls="collapseExample">
                   German Lang
                 </button>
             </div>
@@ -215,7 +215,7 @@
                             </div>
                             <hr>
                             <div class="col-md-12">
-                                <img class="" src="/static/practise/{{key}}/{{german_data_root}}/{{german_data_root}}.jpeg">
+                                <img src="/static/practise/{{key}}/{{german_data_root}}/{{german_data_root}}.jpeg">
                             </div>
                         </div>
                     </div>
@@ -238,33 +238,34 @@
                         </ul>
                         </div>
                     </div>
-<!--                    <div class="row">-->
+                    <div class="row">
 <!--                        <div class="col-md-12">-->
                         <div class="tab-content" id="myTabContent">
                             {% for gym_data_root in datas[key] %}
                               <div class="tab-panel fade" id="{{gym_data_root}}" role="tabpanel" aria-labelledby="{{gym_data_root}}-tab">
                                   <input class="form-control gdInput" type="text" placeholder="Search..">
-                                  <div class="row">
+<!--                                  <div class="row">-->
                                   {% for gym_c in gym_content[gym_data_root] %}
-                                      {#% if gym_data_root == 'daily-workouts' %#}
-<!--                                        <button class="title-class german-course-ids gdList" type="button" data-toggle="collapse" data-target="#{{gym_c}}" aria-expanded="false" aria-controls="collapseExample">-->
-<!--                                            {{gym_c}}-->
-<!--                                        </button>-->
+                                      {% if gym_data_root == 'daily-workouts' %}
+                                        <button class="title-class german-course-ids gdList" type="button" data-toggle="collapse" data-target="#{{gym_c}}" aria-expanded="false" aria-controls="collapseExample">
+                                            {{gym_c}}
+                                        </button>
+                                      {% endif %}
                                       {#% elif gym_data_root == 'workout-videos' %#}
                                         <div class="col-md-3">
                                             <a target="_blank" href="{{gym_content[gym_data_root][gym_c]}}">
-                                                <button class="title-class german-course-ids gdList" type="button" data-toggle="collapse" data-target="#" aria-expanded="false" aria-controls="collapseExample">
+                                                <button class="title-class german-course-ids gdList" type="button" data-toggle="collapse" data-target="#{{gym_c}}" aria-expanded="false" aria-controls="collapseExample">
                                                     {{gym_c}}
                                                 </button>
                                             </a>
                                         </div>
                                         {#% endif %#}
                                   {% endfor %}
-                                  </div>
+<!--                                  </div>-->
                               </div>
                             {% endfor %}
                         </div>
-<!--                        </div>-->
+                        </div>
 <!--                    </div>-->
 
                   {% for gymdiet_data_root in datas[key] %}
