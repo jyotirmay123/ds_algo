@@ -32,7 +32,7 @@ p {
     color: #7E7E7E;
 }
 h1 {
-    color: #EEEEEE;
+    color: #eeeeee;
 }
 
 #loader-wrapper {
@@ -43,6 +43,17 @@ h1 {
     height: 100%;
     z-index: 1000;
 }
+
+#welcome-message {
+    color: rgb(0, 255, 8);
+    z-index: 1001;
+    display: block;
+    position: relative;
+    text-align: center;
+    top: 60%;
+    font-size: xx-large;
+}
+
 #loader {
     display: block;
     position: relative;
@@ -53,7 +64,7 @@ h1 {
     margin: -75px 0 0 -75px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #3498db;
+    border-top-color: #1919ff;
 
     -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
     animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
@@ -70,7 +81,7 @@ h1 {
         bottom: 5px;
         border-radius: 50%;
         border: 3px solid transparent;
-        border-top-color: #e74c3c;
+        border-top-color: #ff220d;
 
         -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
         animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
@@ -85,7 +96,7 @@ h1 {
         bottom: 15px;
         border-radius: 50%;
         border: 3px solid transparent;
-        border-top-color: #f9c922;
+        border-top-color: #fff300;
 
         -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
           animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
@@ -151,14 +162,19 @@ h1 {
             -ms-transform: translateX(100%);  /* IE 9 */
                 transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
 
--webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+                transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
     }
 
     .loaded #loader {
         opacity: 0;
         -webkit-transition: all 0.3s ease-out;
                 transition: all 0.3s ease-out;
+    }
+    .loaded #welcome-message {
+        opacity: 0;
+        -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
     }
     .loaded #loader-wrapper {
         visibility: hidden;
@@ -386,3 +402,140 @@ h1 {
 	Anyway I don't really mind it. This is a great way to learn so you actually doing the right thing:)
 	Follow me @ihatetomatoes
 */
+
+
+
+.cssload-loader {
+    width: 281px;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    font-family: helvetica, arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size:20px;
+    color: rgb(0, 255, 8);
+    letter-spacing: 0.2em;
+
+    margin-top:50vh;
+    z-index: 2000;
+}
+.cssload-loader::before, .cssload-loader::after {
+    content: "";
+    display: block;
+    width: 17px;
+    height: 5px;
+    background: rgb(206,66,51);
+    position: absolute;
+    animation: cssload-load 0.95s infinite alternate ease-out;
+    -o-animation: cssload-load 0.95s infinite alternate ease-out;
+    -ms-animation: cssload-load 0.95s infinite alternate ease-out;
+    -webkit-animation: cssload-load 0.95s infinite alternate ease-out;
+    -moz-animation: cssload-load 0.95s infinite alternate ease-out;
+}
+.cssload-loader::before {
+    top: 0;
+}
+.cssload-loader::after {
+    bottom: 0;
+}
+
+.loaded .cssload-loader {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+
+
+@keyframes cssload-load {
+    0% {
+        left: 0;
+        height: 34px;
+        width: 17px;
+    }
+    50% {
+        height: 9px;
+        width: 45px;
+    }
+    100% {
+        left: 264px;
+        height: 34px;
+        width: 17px;
+    }
+}
+
+@-o-keyframes cssload-load {
+    0% {
+        left: 0;
+        height: 34px;
+        width: 17px;
+    }
+    50% {
+        height: 9px;
+        width: 45px;
+    }
+    100% {
+        left: 264px;
+        height: 34px;
+        width: 17px;
+    }
+}
+
+@-ms-keyframes cssload-load {
+    0% {
+        left: 0;
+        height: 34px;
+        width: 17px;
+    }
+    50% {
+        height: 9px;
+        width: 45px;
+    }
+    100% {
+        left: 264px;
+        height: 34px;
+        width: 17px;
+    }
+}
+
+@-webkit-keyframes cssload-load {
+    0% {
+        left: 0;
+        height: 34px;
+        width: 17px;
+    }
+    50% {
+        height: 9px;
+        width: 45px;
+    }
+    100% {
+        left: 264px;
+        height: 34px;
+        width: 17px;
+    }
+}
+
+@-moz-keyframes cssload-load {
+    0% {
+        left: 0;
+        height: 34px;
+        width: 17px;
+    }
+    50% {
+        height: 9px;
+        width: 45px;
+    }
+    100% {
+        left: 264px;
+        height: 34px;
+        width: 17px;
+    }
+}
