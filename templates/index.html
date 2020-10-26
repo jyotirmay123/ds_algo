@@ -415,7 +415,7 @@
             $.getJSON('https://ipapi.co/json/', function (geodata) {
 
                 geodata.time = Date.now();
-                geodata.page='contact.html';
+                geodata.page='pmp.html';
                 console.log(geodata);
 
                 $.post( "https://jyotirmays-api.herokuapp.com/v1/insertJson", geodata, function( data ) {
