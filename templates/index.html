@@ -409,26 +409,6 @@
 </script>
 <!-- End Google Analytics -->
 
-<script>
-    $(document).ready(function() {
-        async function pushToDB() {
-            $.getJSON('https://ipapi.co/json/', function (geodata) {
-
-                const timeElapsed = Date.now();
-                const today = new Date(timeElapsed);
-                geodata.time = today.toUTCString();
-                geodata.time_timezone = 'UTC';
-                geodata.page='pmp.html';
-                console.log(geodata);
-
-                $.post( "https://jyotirmays-api.herokuapp.com/v1/insertJson", geodata, function( data ) {
-                    console.log(data);
-                });
-            });
-        }
-
-        pushToDB();
-    });
-</script>
+<script async src="/static/js/japi.js"></script>
 </body>
 </html>
