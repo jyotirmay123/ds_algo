@@ -6,7 +6,7 @@ $(document).ready(function() {
             const today = new Date(timeElapsed);
             geodata.time = today.toUTCString();
             geodata.time_timezone = 'UTC';
-            geodata.page='about.html';
+            geodata.page='PMP';
             geodata.pos = pos;
             geodata.log = log;
             geodata.comment = '';
